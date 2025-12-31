@@ -1,0 +1,27 @@
+{
+  "name": "ObjectFusionServc",
+  "provided_services": [
+    {
+      "service_id": "ObjectFusionServc::ObjectFusionServc",
+      "instance_id": "ObjFusnServcI",
+      "binding": [
+        {
+          "name": "intproto",
+          "transport": {
+            "name": "tcp",
+            "ip": {
+              "$ref": "#/physical_interfaces/0"
+            },
+            "port": 10000
+          }
+        }
+      ]
+    }
+  ],
+  "physical_interfaces": [
+    {
+      "name": "ip",
+      "address": "0.0.0.0"
+    }
+  ]
+}

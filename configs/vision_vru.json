@@ -1,0 +1,14 @@
+{
+ "left_camera_id": 0,
+ "right_camera_id": 1,
+ "is_image_mirrored": true,
+ "yolo_model_path": "configs/models/yolo11n.onnx",
+ "stereo_calib_path": "configs/cfg/stereo_calib.xml",
+ "enable_display": true,
+ "checkerboard_calibration": {
+   "baseline": 0.10,
+   "board_width": 8,
+   "board_height": 6,
+   "square_size_meters": 0.03
+ }
+}

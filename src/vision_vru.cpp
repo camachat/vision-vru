@@ -277,21 +277,10 @@ int main(int argc, char **argv)
     }
     auto net = cv::dnn::readNetFromONNX(
         appConfig.yolo_model_path); // or yolo11n.onnx, yolov12n.onnx
-    net.setPreferableBackend(cv::dnn::DNN_BACKEND_VKCOM);
-    net.setPreferableTarget(cv::dnn::DNN_TARGET_VULKAN);
-    // Optional: force early init + catch failure
-    try {
-        cv::Mat dummy_input(1, 1, CV_32FC3);  // tiny dummy
-        net.setInput(dummy_input);
-        cv::Mat dummy_out;
-        net.forward(dummy_out, net.getUnconnectedOutLayersNames());
-        std::cout << "[INFO] Vulkan backend accepted a test forward pass\n";
-    } catch (const cv::Exception& e) {
-        std::cout << "[WARN] Vulkan initialization failed: " << e.what()
-                << " → falling back to CPU\n";
-        net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
-        net.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
-    }
+    // net.setPreferableBackend(cv::dnn::DNN_BACKEND_VKCOM);
+    // net.setPreferableTarget(cv::dnn::DNN_TARGET_VULKAN);
+    net.setPreferableBackend(cv::dnn::DNN_BACKEND_OPENCV);
+    net.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
 
     auto stereo = cv::StereoSGBM::create(0, 128, 5);
     stereo->setMode(cv::StereoSGBM::MODE_SGBM_3WAY);

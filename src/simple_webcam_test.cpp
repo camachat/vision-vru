@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
     cap.set(cv::CAP_PROP_FRAME_HEIGHT, 480);
     cap.set(cv::CAP_PROP_FPS, 30);           // often ignored by driver
     cap.set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('M','J','P','G'));
-    cap.set(cv::CAP_PROP_BUFFERSIZE, 1);           // often ignored by driver
+    cap.set(cv::CAP_PROP_BUFFERSIZE, 2);           // often ignored by driver
 
     std::cout << "Webcam opened successfully\n";
     std::cout << "Resolution: " << cap.get(cv::CAP_PROP_FRAME_WIDTH) << "x" 

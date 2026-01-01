@@ -223,8 +223,8 @@ int main(int argc, char **argv)
     right.set(cv::CAP_PROP_FPS, 30);
 
     // Set buffer size to reduce latency
-    left.set(cv::CAP_PROP_BUFFERSIZE, 1);
-    right.set(cv::CAP_PROP_BUFFERSIZE, 1);
+    left.set(cv::CAP_PROP_BUFFERSIZE, 2);
+    right.set(cv::CAP_PROP_BUFFERSIZE, 2);
 
     if (!left.isOpened() || !right.isOpened()) {
         std::cerr << "ERROR: Failed to open cameras\n";

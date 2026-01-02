@@ -204,9 +204,9 @@ int main(int argc, char **argv)
     // Create output directory
     fs::create_directories("calib_images");
 
-    // Force V4L2 backend instead of GStreamer
-    cv::VideoCapture left(appConfig.left_camera_id, cv::CAP_V4L2);
-    cv::VideoCapture right(appConfig.right_camera_id, cv::CAP_V4L2);
+    // Auto backend
+    cv::VideoCapture left(appConfig.left_camera_id);
+    cv::VideoCapture right(appConfig.right_camera_id);
 
     // Set MJPEG format for better performance
     left.set(cv::CAP_PROP_FOURCC, cv::VideoWriter::fourcc('M', 'J', 'P', 'G'));

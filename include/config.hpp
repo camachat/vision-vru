@@ -13,7 +13,7 @@ struct CheckerboadConfig {
 
 struct AppConfig {
     int left_camera_id = 0;
-    int right_camera_id = 2;
+    int right_camera_id = 1;
     std::string yolo_model_path = "configs/models/yolo11n.onnx";
     std::string stereo_calib_path = "configs/cfg/stereo_calib.xml";
     bool enable_display = false; // Set false for headless operation
